@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Listagem de contatos utilizando o Spring Boot</title>
+        
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+            rel="stylesheet" />
+        
+        <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+            rel="stylesheet" />
+        
+        <link th:href="@{/webjars/font-awesome/css/font-awesome.min.css}"
+            rel="stylesheet" />
+        
+        <link th:href="@{/css/estilo.css}" rel="stylesheet" />
+    </head>
+
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                        aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span> <span
+                            class="icon-bar"></span> <span class="icon-bar"></span> <span
+                            class="icon-bar"></span>
+                    </button>
+    
+                    <a class="navbar-brand" th:href="@{/contatos}">AW Contatos</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                           <a href="#" class="dropdown-toggle" 
+                               data-toggle="dropdown" role="button" aria-haspopup="true"
+                              aria-expanded="false"> 
+                              AlgaWorks 
+                              <span class="caret"></span>
+                           </a>
+    
+                            <ul class="dropdown-menu">
+                                <li><a href="http://www.algaworks.com" target="_blank">Site</a></li>
+                                <li><a href="http://www.facebook.com/algaworks" target="_blank">Facebook</a></li>
+                                <li><a href="http://www.youtube.com/algaworks" target="_blank">YouTube</a></li>
+                                <li><a href="http://github.com/algaworks" target="_blank">Github</a></li>
+                                <li><a href="http://blog.algaworks.com/" target="_blank">Nosso Blog</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <div class="container">
+            <div class="page-header">
+                <h1>Lista de contatos</h1>
+            </div>
+            
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr th:each="contato: ${contatos}">
+                        <td th:text="${contato.id}"></td>
+                        <td th:text="${contato.nome}"></td>
+                        <td th:text="${contato.email}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <div class="container">
+            <hr />
+    
+            <footer>
+                <h4>Artigo "O que é Spring Boot?"</h4>
+            </footer>
+        </div>
+    
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </body>
+</html>
